@@ -18,17 +18,21 @@ HIGHLIGHT = (150, 150, 150)
 
 class GameOfLife:
     """Classe pour gérer la logique du jeu de la vie."""
-    def __init__(self, rows, cols):
+    def __init__(self, rows: int, cols: int, no_window_boundaries: bool):
         self.rows = rows
         self.cols = cols
         self.grid = np.zeros((rows, cols), dtype=int)
+        self.no_window_boundaries = no_window_boundaries
 
     def update(self):
         """Met à jour l'état de chaque cellule en fonction des règles du jeu."""
         new_grid = np.copy(self.grid)
         for row in range(self.rows):
             for col in range(self.cols):
-                live_neighbors = self.count_live_neighbors(row, col)
+                if self.no_window_boundaries:
+                    live_neighbors = self.count_live_neighbors_nolimits(row, col)
+                else:
+                    live_neighbors = self.count_live_neighbors(row, col)
                 if self.grid[row, col] == 1:
                     if live_neighbors < 2 or live_neighbors > 3:
                         new_grid[row, col] = 0
@@ -38,6 +42,16 @@ class GameOfLife:
         self.grid = new_grid
 
     def count_live_neighbors(self, row, col):
+        """Compte les voisins vivants autour de la cellule (row, col)."""
+        total = 0
+        for i in range(row - 1, row + 2):
+            for j in range(col - 1, col + 2):
+                if (i == row and j == col) or i < 0 or j < 0 or i >= self.rows or j >= self.cols:
+                    continue
+                total += self.grid[i, j]
+        return total
+
+    def count_live_neighbors_nolimits(self, row, col):
         """Compte les voisins vivants autour de la cellule (row, col) avec effet de bord cyclique."""
         total = 0
         for i in range(-1, 2):
@@ -272,6 +286,6 @@ class GameView:
 
 # Initialisation et démarrage du jeu
 if __name__ == "__main__":
-    game = GameOfLife(GRID_ROWS, GRID_COLS)
+    game = GameOfLife(GRID_ROWS, GRID_COLS, True)
     view = GameView(game)
     view.update_display()

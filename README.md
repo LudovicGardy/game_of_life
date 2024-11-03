@@ -46,6 +46,16 @@ Poetry can handle the creation and activation of a virtual environment automatic
     ```
 
 2. **Install Dependencies and Create the Environment**:
+   - If there is no `pyproject.toml` file in your project yet, you can create one using:
+     ```bash
+     poetry init
+     ```
+
+   - Add the libraries you need, for exemple:
+     ```bash
+     poetry add pygame
+     ```
+
    - Run the following command to let `poetry` create an isolated environment and install dependencies directly:
      ```bash
      poetry install --no-root
@@ -60,12 +70,12 @@ Poetry can handle the creation and activation of a virtual environment automatic
 4. **Run the Application**:
    - **To run the full application**:
      ```bash
-     python run/main.py
+     python main.py
      ```
    - **To run a simplified version**:
      ```bash
      cd simple_version
-     python run/main.py
+     python main.py
      ```
 
 #### Note on Poetry-managed Environments
@@ -93,21 +103,26 @@ If you prefer using Conda, follow these steps:
        conda activate myenv
        ```
 
-3. **Install Dependencies with Poetry**:
+3. **Install Dependencies**:
+   1. **With Poetry**
    - Once the environment is active, install dependencies within it:
      ```bash
      poetry install --no-root
      ```
+   1. **Or with pip**
+      ```bash
+      pip install -r requirements.txt
+      ```
 
 4. **Run the Application**:
    - **To run the full application**:
      ```bash
-     python run/main.py
+     python main.py
      ```
    - **To run a simplified version**:
      ```bash
      cd simple_version
-     python run/main.py
+     python main.py
      ```
 
 ---

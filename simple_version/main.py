@@ -3,11 +3,6 @@
 import pygame
 import numpy as np
 
-col_about_to_die = (200, 200, 225)
-col_alive = (255, 255, 215)
-col_background = (10, 10, 40)
-col_grid = (30, 30, 60)
-
 def update(surface, cur, sz):
     nxt = np.zeros((cur.shape[0], cur.shape[1]))
 

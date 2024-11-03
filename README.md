@@ -1,8 +1,6 @@
 # The Game Of Life
 
 ## 📄 Overview
-
-
 🏡 This project implements an interactive version of the classic simulation game, *John Conway's Game of Life*, using Pygame. The game allows users to select different starting patterns from classic configurations (like the *glider*, *small exploder*, and others) stored in a JSON file. A user-friendly interface lets users preview and choose their preferred configuration before launching the simulation.
 
 🤔 The game's objective is to simulate the evolution of cells on a grid based on simple rules, which lead to complex and intriguing patterns. This project goes beyond simple simulation by offering a graphical interface where each user can select their starting pattern. This customization allows a better understanding of specific behaviors in each configuration, making the experience both educational and enjoyable.
@@ -72,13 +70,13 @@ Since the Game of Life is structured on a grid of nine cells, each cell has eigh
 
 - **To run the full application**:
     ```bash
-    python run/main.py
+    python main.py
     ```
 
 - **To run a simplified version**:
     ```bash
     cd simple_version
-    python run/main.py
+    python main.py
     ```
 
 ### Option 2: Run the App with Docker

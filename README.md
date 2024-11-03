@@ -25,20 +25,19 @@ Since the Game of Life is structured on a grid of nine cells, each cell has eigh
 
 ## Prerequisites
 
-- **Anaconda or Miniconda**: For easy environment management
+- **Anaconda or Miniconda**: For easy environment management (optional)
 - **Docker** (optional): To run the app in a containerized setup
+- **Python 3.12**
 
 ## ⚙️ Installation and Setup
 
-### Requirements
-- **Python 3.11**
-- **Python Libraries**: Managed with `poetry`
+This project uses **Poetry** for dependency management, which offers an option to create virtual environments directly. You have two choices to set up your environment:
 
-## 🛠️ Quick Start Guide
+### Option 1: Using Poetry to Create and Manage the Virtual Environment
 
-### Option 1: Run the App without Docker
+Poetry can handle the creation and activation of a virtual environment automatically, without needing Conda or other virtual environment tools.
 
-#### Step 1: Set Up Your Environment
+#### Steps
 
 1. **Clone the repository**:
     ```bash
@@ -46,69 +45,109 @@ Since the Game of Life is structured on a grid of nine cells, each cell has eigh
     cd game_of_life
     ```
 
-2. **Create and Activate a Virtual Environment**:
+2. **Install Dependencies and Create the Environment**:
+   - Run the following command to let `poetry` create an isolated environment and install dependencies directly:
+     ```bash
+     poetry install --no-root
+     ```
+
+3. **Activate the Environment**:
+   - Poetry automatically creates a virtual environment, but it may not activate it by default. Use the following command to activate it:
+     ```bash
+     poetry shell
+     ```
+
+4. **Run the Application**:
+   - **To run the full application**:
+     ```bash
+     python run/main.py
+     ```
+   - **To run a simplified version**:
+     ```bash
+     cd simple_version
+     python run/main.py
+     ```
+
+#### Note on Poetry-managed Environments
+
+Using `poetry install` to create and activate an environment directly is a streamlined approach, making Conda unnecessary. This can be ideal if you want a simple, Python-only virtual environment managed by `poetry`.
+
+---
+
+### Option 2: Using Conda for Virtual Environment Management
+
+If you prefer using Conda, follow these steps:
+
+#### Steps
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/LudovicGardy/game_of_life
+    cd game_of_life
+    ```
+
+2. **Create and Activate the Conda Environment**:
    - **Using Conda** (recommended):
        ```bash
        conda create -n myenv python=3.11
        conda activate myenv
        ```
 
-   - **Using a Python Virtual Environment**:
-       ```bash
-       python3 -m venv .venv
-       source .venv/bin/activate
-       ```
+3. **Install Dependencies with Poetry**:
+   - Once the environment is active, install dependencies within it:
+     ```bash
+     poetry install --no-root
+     ```
 
-#### Step 2: Install Dependencies with Poetry
+4. **Run the Application**:
+   - **To run the full application**:
+     ```bash
+     python run/main.py
+     ```
+   - **To run a simplified version**:
+     ```bash
+     cd simple_version
+     python run/main.py
+     ```
 
-- Once the environment is active, install dependencies:
-    ```bash
-    poetry install --no-root
-    ```
+---
 
-#### Step 3: Run the Application
+### Option 3: Run the App with Docker
 
-- **To run the full application**:
-    ```bash
-    python main.py
-    ```
+If you prefer to run the application in a containerized setup, use Docker.
 
-- **To run a simplified version**:
-    ```bash
-    cd simple_version
-    python main.py
-    ```
+#### Steps
 
-### Option 2: Run the App with Docker
+1. **Set Up Docker Environment**
 
-#### Step 1: Set Up Docker Environment
+   - Make sure **Docker** is installed and running on your system.
 
-- Make sure **Docker** is installed and running on your system.
+2. **Navigate to the Correct Directory**
 
-#### Step 2: Navigate to the Correct Directory
+   - **For a multi-container setup**:
+     ```bash
+     cd [path-to-app-folder-with-docker-compose.yml]
+     ```
 
-- **For a multi-container setup**:
-    ```bash
-    cd [path-to-app-folder-with-docker-compose.yml]
-    ```
+   - **For a single container**:
+     ```bash
+     cd [path-to-app-folder-with-Dockerfile]
+     ```
 
-- **For a single container**:
-    ```bash
-    cd [path-to-app-folder-with-Dockerfile]
-    ```
+3. **Build and Start the Containers**
 
-#### Step 3: Build and Start the Containers
+   - Run the following command to build and launch the app in Docker:
+     ```bash
+     docker-compose up --build
+     ```
 
-- Run the following command to build and launch the app in Docker:
-    ```bash
-    docker-compose up --build
-    ```
+   - **Access the Application**:
+     - Open your browser and go to `http://localhost:8501`.
 
-- **Access the Application**:
-    - Open your browser and go to `http://localhost:8501`.
+   - **Troubleshooting**:
+     - If there’s an issue with `pymssql`, try adjusting its version in `requirements.txt` or temporarily removing it.
 
-- **Troubleshooting**:
-    - If there’s an issue with `pymssql`, try adjusting its version in `requirements.txt` or temporarily removing it.
+---
 
 ## 👤 Author
 

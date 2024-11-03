@@ -149,6 +149,43 @@ If you prefer to run the application in a containerized setup, use Docker.
 
 ---
 
+## 🧪 Running Unit Tests
+
+Poetry can also manage unit tests to help you verify that the application functions as expected. This project uses **pytest** for testing.
+
+### Setting Up and Running Tests
+
+1. **Add Testing Dependencies**:
+
+   If `pytest` and other test dependencies are not yet added, include them using Poetry:
+   ```bash
+   poetry add --dev pytest
+   ```
+
+2. **Writing Tests**:
+
+   - Place your test files in a `tests` directory at the root of the project.
+   - Name your test files following the pattern `test_*.py`.
+
+3. **Running Tests**:
+
+   To run tests within the Poetry environment, use:
+   ```bash
+   poetry run pytest
+   ```
+
+   Alternatively, if you are in an activated Poetry shell (`poetry shell`), you can simply run:
+   ```bash
+   pytest
+   ```
+
+4. **Viewing Test Results**:
+
+   - Test results will appear in the terminal, with a summary of passed, failed, and skipped tests.
+   - Use `pytest -v` for more detailed output.
+
+---
+
 ## 👤 Author
 
 - **LinkedIn**: [Ludovic Gardy](https://www.linkedin.com/in/ludovic-gardy/)

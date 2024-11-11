@@ -21,7 +21,10 @@ Since the Game of Life is structured on a grid of nine cells, each cell has eigh
 - If a cell is ON and has more than three neighbors that are ON, it turns OFF.
 - If a cell is OFF and has exactly three neighboring cells that are ON, it becomes ON.
 
-![Image1](images/image1.png)
+| ![Image1](images/image1.png) | ![Image2](images/image2.png) |
+|:---------------------:|:---------------------:|
+|Kernel|Application|
+
 
 ## Prerequisites
 

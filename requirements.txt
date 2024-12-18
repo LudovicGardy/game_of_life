@@ -1,0 +1,4 @@
+pygame == 2.6.1
+pyaml == 24.9.0
+pytest == 8.3.4
+pytest-cov == 6.0.0

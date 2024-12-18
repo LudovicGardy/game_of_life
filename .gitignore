@@ -16,6 +16,10 @@ restaurants_simulated_france.parquet
 
 # Testing
 .pytest_cache/
+.coverage*
+coverage.xml
+junit.xml
+test.html
 
 # Logs
 *.log
@@ -30,3 +34,4 @@ drivers/
 _ignore*/
 _ignore*
 #.env # Let's keep it for this project
+

@@ -6,9 +6,11 @@ authors = ["Ludovic Gardy <ludovic.gardy@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.12,<3.14"
 pygame = "^2.6.1"
 pyaml = "^24.9.0"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
 
 
 [build-system]

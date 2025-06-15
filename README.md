@@ -82,6 +82,42 @@ This version assumes a classic Python setup with `venv` and `requirements.txt`. 
 
 ---
 
+## 🛠️ Development
+
+### Pre-commit Hooks
+
+This project uses pre-commit to maintain code quality. The following hooks are configured:
+
+- **Basic hooks**: checking for trailing whitespaces, end-of-file formatting, YAML and TOML file verification, etc.
+- **Ruff**: Python code linting and formatting
+- **Codespell**: spell checking
+- **Commitizen**: checking commit messages according to the defined convention
+
+To install pre-commit:
+
+```bash
+# Install dependencies
+uv pip install pre-commit ruff
+
+# Install git hooks
+pre-commit install
+```
+
+The hooks will run automatically with each commit. You can also run them manually:
+
+```bash
+pre-commit run --all-files  # Run on all files
+pre-commit run ruff         # Run a specific hook
+```
+
+Ruff configuration is defined in `pyproject.toml` and includes:
+- reStructuredText docstring format
+- Import checking
+- Double quote formatting
+- Line length limited to 100 characters
+
+---
+
 ## 👤 Author
 
 - LinkedIn: [Ludovic Gardy](https://www.linkedin.com/in/ludovic-gardy/)

@@ -61,7 +61,8 @@ class GameOfLife:
 
     def toggle_cell(self, row, col):
         """Inverse l'état d'une cellule donnée."""
-        self.grid[row, col] = 1 if self.grid[row, col] == 0 else 0
+        if 0 <= row < self.rows and 0 <= col < self.cols:
+            self.grid[row, col] = 1 if self.grid[row, col] == 0 else 0
 
     def reset_grid(self):
         """Réinitialise la grille en mettant toutes les cellules à zéro."""

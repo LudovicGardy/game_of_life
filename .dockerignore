@@ -1,0 +1,29 @@
+# The Dockerfile does COPY . . : without this file, everything lying in the folder
+# (.env, .git, local .venv, caches) would enter the image and be sent as build context.
+
+.git
+.github
+.gitignore
+.dockerignore
+
+# Secrets: pass them at run time with `docker run --env-file .env`.
+.env
+.env.*
+
+# Python, venv, caches
+.venv/
+**/__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.coverage*
+coverage.xml
+junit.xml
+
+# Archives and local documents, not needed at runtime
+_ignore_archives/
+_ignore_documents/
+_ignore_notebooks/
+*.ipynb
+
+.DS_Store
